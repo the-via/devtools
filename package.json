@@ -1,0 +1,22 @@
+{
+  "name": "via-devtools",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-via/devtools.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/the-via/devtools/issues"
+  },
+  "homepage": "https://github.com/the-via/devtools#readme",
+  "dependencies": {
+    "esbuild": "^0.9.3"
+  }
+}

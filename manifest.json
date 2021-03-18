@@ -1,0 +1,13 @@
+{
+  "manifest_version" : 2,
+  "name" : "VIA-Dev",
+  "version" : "0.0.0",
+  "description" : "Dev tools for VIA",
+  "author" : "the-via",
+  "devtools_page" : "html/devtools.html",
+  "permissions": ["tabs"],
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "js": ["js/content-script.js"]
+  }]
+}
