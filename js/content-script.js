@@ -18,7 +18,3 @@ port.onMessage.addListener((m) => {
     window.postMessage({ command: "fetchLogs" }, "*");
   }
 });
-
-window.__portal = (fn) => {
-  fn(chrome);
-};
