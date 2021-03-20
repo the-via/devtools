@@ -11,11 +11,15 @@
     "https://*/*"
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "background": {
+    "scripts": [ "js/background.js" ],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["js/content-script.js"],
-      "run_at": "document_start"
+      "run_at": "document_end"
     }
   ]
 }
