@@ -8,6 +8,4 @@ chrome.devtools.panels.create("VIA", null, "/html/panel.html", (panel) => {
   });
 });
 
-chrome.runtime.onConnect.addListener((port) => {
-  chrome.devtools.inspectedWindow.eval(`alert('connected ${port.name}');`);
-});
+chrome.runtime.onConnect.addListener((port) => {});
