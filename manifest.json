@@ -1,24 +1,25 @@
 {
   "manifest_version" : 2,
   "name" : "VIA-Dev",
-  "version" : "0.0.0",
+  "version" : "0.0.1",
   "description" : "Dev tools for VIA",
   "author" : "the-via",
-  "devtools_page" : "html/devtools.html",
+  "devtools_page" : "devtools.html",
   "permissions": [
     "file:///*",
     "http://*/*",
-    "https://*/*"
+    "https://*/*",
+    "about:blank"
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "background": {
-    "scripts": [ "js/background.js" ],
+    "scripts": [ "dist/background.js" ],
     "persistent": false
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["js/content-script.js"],
+      "js": ["dist/content-script.js"],
       "run_at": "document_end"
     }
   ]

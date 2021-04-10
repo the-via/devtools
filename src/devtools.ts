@@ -1,4 +1,4 @@
-chrome.devtools.panels.create("VIA", null, "/html/panel.html", (panel) => {
+chrome.devtools.panels.create("VIA", '', "/panel.html", (panel) => {
   panel.onShown.addListener(function (window) {
     chrome.runtime.connect({ name: "devtools" });
     chrome.devtools.inspectedWindow.eval("console.log('shown');");
