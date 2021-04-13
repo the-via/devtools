@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
+import TestJSON from './test.json';
 import './styles.css';
 const port = chrome.runtime.connect({ name: 'panel-page' });
+const DEBUG = true;
 const Root: React.FC<{}> =  () => {
   const [messages, setMessages] = useState([]);
   useEffect(() => {
+    if (DEBUG) {
+      setMessages(TestJSON as any);
+    }
+
     port.onMessage.addListener((m) => {
       setMessages(m);
     });
@@ -12,8 +18,9 @@ const Root: React.FC<{}> =  () => {
   return (
     <>
     VIA
+    <div className="container">
       {messages.map((message: any) => (
-        <div>
+        <>
           <div className="addr">{message.kbAddr}</div>
           <div className="req">{JSON.stringify(message.request)}</div>
           <div className="resp">
@@ -28,8 +35,9 @@ const Root: React.FC<{}> =  () => {
               hour12: false,
             })}
           </div>
-        </div>
+          </>
       ))}
+    </div>
     </>
   );
 };
