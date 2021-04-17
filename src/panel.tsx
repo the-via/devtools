@@ -43,7 +43,7 @@ const Root: React.FC<{}> = () => {
   }, []);
   const categorizedMessages = categorize(messages);
   return (
-    <div className="flex">
+    <div className="flex space-x-2">
       <div className="w-32">
         {Object.keys(categorizedMessages).map(category => (
           <div title={category} className="bg-red-100 font-bold rounded-md truncate">
@@ -51,28 +51,30 @@ const Root: React.FC<{}> = () => {
           </div>
         ))}
       </div>
-      <div className="grid panel-data-cols gap-x-4">
+      <div className="grid panel-data-cols gap-0.5 bg-gray-900">
         {(Object.values(categorizedMessages)[0] ?? []).map((message: Message) => (
           <>
+          <div className="bg-gray-50">
+            {new Date(message.ts).toLocaleTimeString('en-US', {
+              hour12: false,
+            })}
+          </div>
+          <div>
             <div className="text-xs">
               {
                 Array(32)
                   .fill(0)
-                  .map((_, idx) => <span className={`w-4 text-center inline-block ${idx % 2 ? 'bg-gray-100': 'bg-gray-50'}`}>{message.request[idx] || 0}</span>)
+                  .map((_, idx) => <span className={`w-6 h-6 align-middle text-center inline-block ${idx % 2 ? 'bg-gray-100': 'bg-gray-50'}`}>{message.request[idx +1] || 0}</span>)
               }
             </div>
             <div className="text-xs">
               {
                 Array(32)
                   .fill(0)
-                  .map((_, idx) => <span className={`w-4 text-white text-center inline-block ${idx % 2 ? 'bg-gray-500': 'bg-gray-400'}`}>{message.response[idx] || 0}</span>)
+                  .map((_, idx) => <span className={`w-6 h-6 align-middle text-white text-center inline-block ${idx % 2 ? 'bg-gray-500': 'bg-gray-400'}`}>{message.response[idx] || 0}</span>)
               }
             </div>
-            <div>
-              {new Date(message.ts).toLocaleTimeString('en-US', {
-                hour12: false,
-              })}
-            </div>
+          </div>
           </>
         ))}
       </div>
