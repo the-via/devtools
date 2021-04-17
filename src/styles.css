@@ -1,7 +1,10 @@
+body {
+  background: white;
+}
+
 .container {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  background: white;
 }
 
 .addr {
@@ -19,4 +22,8 @@
 .req,
 .resp {
   font-family: monospace;
+}
+
+.panel-data-cols {
+  grid-template-columns: 1fr 1fr min-content;
 }
